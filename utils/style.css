@@ -1,0 +1,13 @@
+
+body {
+  margin: 0;
+}
+
+.bg {
+  background-image: url("oyeti-bg.jpg");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  width: 800px;
+  height: 800px;
+}
