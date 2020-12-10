@@ -17,7 +17,8 @@
 
 	<section class="bg">
 
-		<button type="button" id="trigger">Play Magic</button>
+<!-- 		<button type="button" id="trigger">Play Magic</button> -->
+		<input id="share" type="button" value="Share">
 
 	</section>
 
@@ -25,6 +26,43 @@
 		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
 	<script>
+		
+	async function testWebShare() {
+      if (navigator.share === undefined) {
+        logError('Error: Unsupported feature: navigator.share()');
+        return;
+      }
+
+//       const title_input = document.querySelector('#title');
+//       const text_input = document.querySelector('#text');
+//       const url_input = document.querySelector('#url');
+//       const file_input = document.querySelector('#files');
+
+//       const title = title_input.disabled ? undefined : title_input.value;
+//       const text = text_input.disabled ? undefined : text_input.value;
+//       const url = url_input.disabled ? undefined : url_input.value;
+//       const files = file_input.disabled ? undefined : file_input.files;
+		
+		
+		const message = "testing message";
+
+//       if (files && files.length > 0) {
+//         if (!navigator.canShare || !navigator.canShare({files})) {
+//           logError('Error: Unsupported feature: navigator.canShare()');
+//           return;
+//         }
+//       }
+
+      try {
+        await navigator.share({message});
+        logText('Successfully sent share');
+      } catch (error) {
+        logError('Error sharing: ' + error);
+      }
+    }
+		
+		
+		document.querySelector('#share').addEventListener('click', testWebShare);
 		let beepTone = new Audio('https://ttoyeti.s3.ap-south-1.amazonaws.com/sound_notifications/TonePaymentSuccess.mp3');
 		$(document).ready(function () {
 			//$("#trigger").click(function () {
