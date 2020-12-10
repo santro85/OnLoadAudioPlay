@@ -18,6 +18,10 @@
 	<section class="bg">
 
 <!-- 		<button type="button" id="trigger">Play Magic</button> -->
+		
+		<button type="button" id="trigger">Share</button>
+		
+		<input type="text" class="result"/>
 
 	</section>
 
@@ -25,6 +29,27 @@
 		integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
 	<script>
+		
+		const shareData = {
+  title: 'MDN',
+  text: 'Learn web development on MDN!',
+  url: 'https://developer.mozilla.org',
+}
+
+const btn = document.querySelector('button');
+const resultPara = document.querySelector('.result');
+
+// Must be triggered some kind of "user activation"
+btn.addEventListener('click', async () => {
+  try {
+    await navigator.share(shareData)
+    resultPara.textContent = 'MDN shared successfully'
+  } catch(err) {
+    resultPara.textContent = 'Error: ' + err
+  }
+});
+		
+		
 		let beepTone = new Audio('https://ttoyeti.s3.ap-south-1.amazonaws.com/sound_notifications/TonePaymentSuccess.mp3');
 		$(document).ready(function () {
 			//$("#trigger").click(function () {
