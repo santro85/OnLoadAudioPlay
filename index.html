@@ -49,7 +49,7 @@
 //   }
 // });
 		
-		$("#trigger").on('click',function(){
+		$("#trigger").addEventListener('click', async () => {
           try {
             await navigator.share(shareData)
             console.log('Shared successfully');
