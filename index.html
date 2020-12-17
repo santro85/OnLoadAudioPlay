@@ -36,7 +36,7 @@
   //url: 'https://developer.mozilla.org',
 }
 
-//const btn = document.querySelector('button');
+const btn = document.querySelector('#trigger');
 //const resultPara = document.querySelector('.result');
 
 // Must be triggered some kind of "user activation"
@@ -49,7 +49,7 @@
 //   }
 // });
 		
-		$("#trigger").addEventListener('click', async () => {
+		btn.addEventListener('click', async () => {
           try {
             await navigator.share(shareData)
             console.log('Shared successfully');
