@@ -36,18 +36,28 @@
   //url: 'https://developer.mozilla.org',
 }
 
-const btn = document.querySelector('button');
-const resultPara = document.querySelector('.result');
+//const btn = document.querySelector('button');
+//const resultPara = document.querySelector('.result');
 
 // Must be triggered some kind of "user activation"
-btn.addEventListener('click', async () => {
-  try {
-    await navigator.share(shareData)
-    resultPara.textContent = 'MDN shared successfully'
-  } catch(err) {
-    resultPara.textContent = 'Error: ' + err
-  }
-});
+// btn.addEventListener('click', async () => {
+//   try {
+//     await navigator.share(shareData)
+//     resultPara.textContent = 'MDN shared successfully'
+//   } catch(err) {
+//     resultPara.textContent = 'Error: ' + err
+//   }
+// });
+		
+		$("#trigger").on('click',function(){
+          try {
+            await navigator.share(shareData)
+            console.log('Shared successfully');
+          } catch (err) {
+            await navigator.share('Error: ' + err);
+          }
+        });
+      }
 		
 		
 // 		let beepTone = new Audio('https://ttoyeti.s3.ap-south-1.amazonaws.com/sound_notifications/TonePaymentSuccess.mp3');
